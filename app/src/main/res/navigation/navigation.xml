@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/home2">
+
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.sielee.farmerssurveyapp.ui.Home"
+        android:label="Take Survey"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_questionOne"
+            app:destination="@id/questionOne" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionOne"
+        android:name="com.sielee.farmerssurveyapp.ui.QuestionOne"
+        android:label="Question One"
+        tools:layout="@layout/fragment_question_one" >
+        <action
+            android:id="@+id/action_questionOne_to_questionTwo"
+            app:destination="@id/questionTwo">
+            <argument android:name="farmer_name"
+                app:argType="string"/>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/questionTwo"
+        android:name="com.sielee.farmerssurveyapp.ui.QuestionTwo"
+        android:label="Question Two"
+        tools:layout="@layout/fragment_question_two" >
+        <action
+            android:id="@+id/action_questionTwo_to_questionThree"
+            app:destination="@id/questionThree" >
+            <argument app:argType="string" android:name="farmer_name"/>
+            <argument app:argType="string" android:name="gender"/>
+
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/questionThree"
+        android:name="com.sielee.farmerssurveyapp.ui.QuestionThree"
+        android:label="Question Three"
+        tools:layout="@layout/fragment_question_three" >
+        <action
+            android:id="@+id/action_questionThree_to_home2"
+            app:destination="@id/home2">
+            <argument android:name="farmer_name" app:argType="string"/>
+            <argument app:argType="string" android:name="gender"/>
+            <argument android:name="farm_size" app:argType="integer"/>
+        </action>
+    </fragment>
+</navigation>

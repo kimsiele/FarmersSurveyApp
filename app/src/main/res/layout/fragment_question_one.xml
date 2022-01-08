@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.QuestionOne">
+
+    <TextView
+        android:id="@+id/tvQuestionLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/question_label"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/gdRight"
+        app:layout_constraintStart_toStartOf="@+id/gdLeft"
+        app:layout_constraintTop_toTopOf="@+id/gdTop" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.06388889" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.94722223" />
+
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/tvQuestion"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/gdRight"
+        app:layout_constraintStart_toStartOf="@+id/gdLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestionLabel" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/gdRight"
+        app:layout_constraintStart_toStartOf="@+id/gdLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestion">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edFarmerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_enter_name"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.93" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/nextQuestionTwo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_next_question_label"
+        android:textAllCaps="false"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        android:enabled="false"
+        app:layout_constraintBottom_toTopOf="@+id/gdBottom"
+        app:layout_constraintEnd_toStartOf="@+id/gdRight"
+        app:layout_constraintStart_toStartOf="@+id/gdLeft" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

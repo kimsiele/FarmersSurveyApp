@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">FarmersSurveyApp</string>
+
+    <string name="question_label">Question 1</string>
+    <string name="question2_label">Question 2</string>
+    <string name="question3_label">Question 3</string>
+
+    <string name="tvQuestion">What is your name as a Farmer?</string>
+    <string name="tvQuestionTwo">What is your Gender?</string>
+    <string name="tvQuestionThree">What is the size of your farm?</string>
+
+    <string name="hint_enter_name">Enter Name</string>
+    <string name="hint_enter_farm_size">Enter Farm Size(Acers)</string>
+
+    <string name="btn_take_survey_label">Take Survey</string>
+    <string name="btn_next_question_label">Next</string>
+    <string name="btn_finish_label">Finish</string>
+
+    <string name="opt_male">Male</string>
+    <string name="opt_female">Female</string>
+    <string name="opt_other">Other</string>
+</resources>
