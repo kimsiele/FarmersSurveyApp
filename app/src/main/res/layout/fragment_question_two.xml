@@ -1,103 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.QuestionTwo">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gdTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
+    <data>
+        <variable
+            name="questionTwoFragment"
+            type="com.sielee.farmerssurveyapp.ui.QuestionTwo" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gdLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.06388889" />
+        <variable
+            name="viewModel"
+            type="com.sielee.farmerssurveyapp.viewmodels.MainViewModel" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gdRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.94722223" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gdBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.93" />
+    </data>
 
-    <TextView
-        android:id="@+id/tvQuestionTwoLabel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/question2_label"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/gdRight"
-        app:layout_constraintStart_toStartOf="@+id/gdLeft"
-        app:layout_constraintTop_toTopOf="@+id/gdTop" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.QuestionTwo">
 
-    <TextView
-        android:id="@+id/tvQuestion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/tvQuestionTwo"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/gdRight"
-        app:layout_constraintStart_toStartOf="@+id/gdLeft"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuestionTwoLabel" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/gdRight"
-        app:layout_constraintStart_toStartOf="@+id/gdLeft"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuestion">
-
-
-        <RadioButton
-            android:id="@+id/rbMale"
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdTop"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/opt_male" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
 
-        <RadioButton
-            android:id="@+id/rbFemale"
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdLeft"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/opt_female" />
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.06388889" />
 
-        <RadioButton
-            android:id="@+id/rbOther"
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdRight"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/opt_other" />
-    </RadioGroup>
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.94722223" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/nextQuestionThree"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_next_question_label"
-        android:textAllCaps="false"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:textSize="18sp"
-        app:cornerRadius="20dp"
-        android:enabled="false"
-        app:layout_constraintBottom_toTopOf="@+id/gdBottom"
-        app:layout_constraintEnd_toStartOf="@+id/gdRight"
-        app:layout_constraintStart_toStartOf="@+id/gdLeft" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.93" />
+
+        <TextView
+            android:id="@+id/tvQuestionTwoLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/question2_label"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/gdRight"
+            app:layout_constraintStart_toStartOf="@+id/gdLeft"
+            app:layout_constraintTop_toTopOf="@+id/gdTop" />
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@{viewModel.questions[1]}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/gdRight"
+            app:layout_constraintStart_toStartOf="@+id/gdLeft"
+            app:layout_constraintTop_toBottomOf="@+id/tvQuestionTwoLabel" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/gdRight"
+            app:layout_constraintStart_toStartOf="@+id/gdLeft"
+            app:layout_constraintTop_toBottomOf="@+id/tvQuestion">
 
 
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.genders[0]}"
+                android:onClick="@{()->questionTwoFragment.setAnswer()}"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               android:text="@{viewModel.genders[1]}"
+                android:onClick="@{()->questionTwoFragment.setAnswer()}"/>
+
+            <RadioButton
+                android:id="@+id/rbOther"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.genders[2]}"
+                android:onClick="@{()->questionTwoFragment.setAnswer()}" />
+        </RadioGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextQuestionThree"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_next_question_label"
+            android:textAllCaps="false"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="18sp"
+            app:cornerRadius="20dp"
+            android:enabled="@{viewModel.questionTwoAnswer!=null}"
+            android:onClick="@{()->questionTwoFragment.goNextQuestion()}"
+            app:layout_constraintBottom_toTopOf="@+id/gdBottom"
+            app:layout_constraintEnd_toStartOf="@+id/gdRight"
+            app:layout_constraintStart_toStartOf="@+id/gdLeft" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
