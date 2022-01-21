@@ -12,7 +12,7 @@ interface ApiService {
     suspend fun getSurvey():Survey
 
 }
-val BASE_URL:String = "https://run.mocky.io/v3/"
+const val BASE_URL:String = "https://run.mocky.io/v3/"
 
 val logger = HttpLoggingInterceptor().apply {
     level = HttpLoggingInterceptor.Level.BASIC

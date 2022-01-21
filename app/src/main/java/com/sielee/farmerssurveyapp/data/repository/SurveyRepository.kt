@@ -1,29 +1,18 @@
 package com.sielee.farmerssurveyapp.data.repository
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import com.sielee.farmerssurveyapp.data.database.SurveyDatabase
-import com.sielee.farmerssurveyapp.data.models.Survey
 import com.sielee.farmerssurveyapp.data.network.SurveyApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+
 
 class SurveyRepository(private val surveyDatabase: SurveyDatabase) {
-    init {
-        GlobalScope.launch{
-            fetchSaveSurvey()
-        }
+    val TAG = "SurveyRepository"
 
+    suspend fun saveSurvey() {
+        val networkSurvey = SurveyApi.apiService.getSurvey()
+        surveyDatabase.surveyDao.insert(networkSurvey)
     }
 
-    private suspend fun fetchSaveSurvey() {
-        val survey = SurveyApi.apiService.getSurvey()
-        Log.d("SurveyRepository", "$survey")
+    val survey = surveyDatabase.surveyDao.getSurvey()
 
-        surveyDatabase.surveyDao.insertSurvey(survey)
 
-    }
-    fun fetchFromDb(): LiveData<Survey> {
-        return surveyDatabase.surveyDao.getSurvey()
-    }
 }
