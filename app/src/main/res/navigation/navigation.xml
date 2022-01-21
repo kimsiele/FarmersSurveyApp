@@ -9,9 +9,9 @@
         android:id="@+id/home2"
         android:name="com.sielee.farmerssurveyapp.ui.Home"
         android:label="Take Survey"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_start_survey" >
         <action
-            android:id="@+id/action_home2_to_questionOne"
+            android:id="@+id/action_start_survey_to_questionOne"
             app:destination="@id/questionOne" />
     </fragment>
     <fragment
@@ -21,10 +21,7 @@
         tools:layout="@layout/fragment_question_one" >
         <action
             android:id="@+id/action_questionOne_to_questionTwo"
-            app:destination="@id/questionTwo">
-            <argument android:name="farmer_name"
-                app:argType="string"/>
-        </action>
+            app:destination="@id/questionTwo"/>
     </fragment>
     <fragment
         android:id="@+id/questionTwo"
@@ -33,11 +30,7 @@
         tools:layout="@layout/fragment_question_two" >
         <action
             android:id="@+id/action_questionTwo_to_questionThree"
-            app:destination="@id/questionThree" >
-            <argument app:argType="string" android:name="farmer_name"/>
-            <argument app:argType="string" android:name="gender"/>
-
-        </action>
+            app:destination="@id/questionThree" />
     </fragment>
     <fragment
         android:id="@+id/questionThree"
@@ -46,10 +39,6 @@
         tools:layout="@layout/fragment_question_three" >
         <action
             android:id="@+id/action_questionThree_to_home2"
-            app:destination="@id/home2">
-            <argument android:name="farmer_name" app:argType="string"/>
-            <argument app:argType="string" android:name="gender"/>
-            <argument android:name="farm_size" app:argType="integer"/>
-        </action>
+            app:destination="@id/home2"/>
     </fragment>
 </navigation>

@@ -6,8 +6,10 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.31640625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_question.xml" value="0.31640625" />
+        <entry key="app/src/main/res/layout/fragment_question_one.xml" value="0.31640625" />
         <entry key="app/src/main/res/layout/fragment_question_three.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_question_two.xml" value="0.31640625" />
+        <entry key="app/src/main/res/layout/fragment_start_survey.xml" value="0.3171875" />
       </map>
     </option>
   </component>
