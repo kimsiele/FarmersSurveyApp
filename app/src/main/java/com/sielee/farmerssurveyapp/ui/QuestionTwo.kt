@@ -6,40 +6,47 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.sielee.farmerssurveyapp.R
+import com.sielee.farmerssurveyapp.data.database.SurveyDatabase
 import com.sielee.farmerssurveyapp.databinding.FragmentQuestionTwoBinding
+import com.sielee.farmerssurveyapp.viewmodels.MainViewModel
+import com.sielee.farmerssurveyapp.viewmodels.MainViewModelFactory
 
 
 class QuestionTwo : Fragment() {
     lateinit var binding: FragmentQuestionTwoBinding
-    lateinit var gender:String
+    private lateinit var sharedViewModel: MainViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentQuestionTwoBinding.inflate(inflater, container, false)
+        val surveyDatabase = SurveyDatabase.getInstance(requireContext())
+        val sharedViewModelFactory = MainViewModelFactory(surveyDatabase)
+        sharedViewModel = ViewModelProvider(requireActivity(),sharedViewModelFactory).get(MainViewModel::class.java)
 
-        binding.radioGroup.setOnCheckedChangeListener { group, checkedId ->
+        binding.apply {
+            viewModel = sharedViewModel
+            questionTwoFragment = this@QuestionTwo
+            lifecycleOwner = viewLifecycleOwner
 
-            if (group.findViewById<RadioButton>(checkedId).isChecked) {
-                binding.nextQuestionThree.isEnabled = true
-            }
-            gender = when(group.findViewById<RadioButton>(checkedId)){
-                binding.rbMale->"Male"
-                binding.rbFemale ->"Female"
-                else -> "Other"
-        }
-            val argument =requireArguments()
-            binding.nextQuestionThree.setOnClickListener {
-                findNavController().navigate(QuestionTwoDirections.actionQuestionTwoToQuestionThree(
-                    argument.getString("farmer_name")!!,
-                    gender
-                ))
-            }
         }
 
         return binding.root
     }
 
+    fun goNextQuestion() {
+        findNavController().navigate(R.id.action_questionTwo_to_questionThree)
+    }
+
+    fun setAnswer() {
+        val selectedGender =
+            binding.root.findViewById<RadioButton>(binding.radioGroup.checkedRadioButtonId)
+        sharedViewModel.setQuestionTwoAnswer(selectedGender.text.toString())
+    }
 }
