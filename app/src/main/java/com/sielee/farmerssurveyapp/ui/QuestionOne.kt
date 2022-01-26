@@ -1,12 +1,12 @@
 package com.sielee.farmerssurveyapp.ui
 
+import android.app.Application
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.sielee.farmerssurveyapp.R
@@ -28,7 +28,8 @@ class QuestionOne : Fragment() {
         binding = FragmentQuestionOneBinding.inflate(inflater,container, false)
 
         val surveyDatabase = SurveyDatabase.getInstance(requireContext())
-        val sharedViewModelFactory = MainViewModelFactory(surveyDatabase)
+        val application = Application()
+        val sharedViewModelFactory = MainViewModelFactory(surveyDatabase,application)
         sharedViewModel = ViewModelProvider(requireActivity(),sharedViewModelFactory).get(MainViewModel::class.java)
 
         binding.apply {

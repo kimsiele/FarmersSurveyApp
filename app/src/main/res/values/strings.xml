@@ -10,13 +10,12 @@
     <string name="tvQuestionThree">What is the size of your farm?</string>
 
     <string name="hint_enter_name">Enter Name</string>
-    <string name="hint_enter_farm_size">Enter Farm Size(Acers)</string>
+    <string name="hint_enter_farm_size">Enter Size</string>
 
     <string name="btn_take_survey_label">Take Survey</string>
     <string name="btn_next_question_label">Next</string>
     <string name="btn_finish_label">Finish</string>
 
-    <string name="opt_male">Male</string>
-    <string name="opt_female">Female</string>
-    <string name="opt_other">Other</string>
+    <string name="survey_desc">By answering this few minutes survey, you help us improve our services even better for you.</string>
+    <string name="survey_header">Your opinion in a few seconds</string>
 </resources>

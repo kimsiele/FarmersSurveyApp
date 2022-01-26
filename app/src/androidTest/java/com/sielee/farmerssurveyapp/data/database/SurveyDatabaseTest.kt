@@ -1,13 +1,13 @@
 package com.sielee.farmerssurveyapp.data.database
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import com.google.common.truth.Truth.assertThat
 import com.sielee.farmerssurveyapp.data.models.*
-import junit.framework.Assert.assertSame
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -75,13 +75,12 @@ fun createDb() {
         )
         runBlocking {
             surveyDao.insert(survey)
-            val sv =surveyDao.getSurvey()
+            val sv = surveyDao.getSurvey()
+            assertThat(sv?.contains(survey)).isTrue()
+            }
 
-            assertSame(sv.value?.id,(survey.id))
+
+            //Log.d("Test", "Db: ${sv} Raw: ${survey.id}")
         }
 
     }
-
-
-
-}

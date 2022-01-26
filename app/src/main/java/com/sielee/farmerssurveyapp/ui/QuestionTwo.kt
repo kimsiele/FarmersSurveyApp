@@ -1,5 +1,6 @@
 package com.sielee.farmerssurveyapp.ui
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,8 +28,9 @@ class QuestionTwo : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentQuestionTwoBinding.inflate(inflater, container, false)
         val surveyDatabase = SurveyDatabase.getInstance(requireContext())
-        val sharedViewModelFactory = MainViewModelFactory(surveyDatabase)
-        sharedViewModel = ViewModelProvider(requireActivity(),sharedViewModelFactory).get(MainViewModel::class.java)
+        val application = Application()
+        val sharedViewModelFactory = MainViewModelFactory(surveyDatabase, application)
+        sharedViewModel = ViewModelProvider(requireActivity(),sharedViewModelFactory)[MainViewModel::class.java]
 
         binding.apply {
             viewModel = sharedViewModel

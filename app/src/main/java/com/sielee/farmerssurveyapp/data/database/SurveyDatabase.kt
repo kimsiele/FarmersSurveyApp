@@ -6,12 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.sielee.farmerssurveyapp.data.models.Convertors
+import com.sielee.farmerssurveyapp.data.models.Response
 import com.sielee.farmerssurveyapp.data.models.Survey
 
-@Database(entities = [Survey::class],version = 2, exportSchema = false)
+@Database(entities = [Survey::class,Response::class] , version = 1, exportSchema = false)
 @TypeConverters(Convertors::class)
 abstract class SurveyDatabase: RoomDatabase() {
     abstract val surveyDao:SurveyDao
+    abstract val responseDao:SurveyResponseDao
 
     companion object{
         @Volatile
