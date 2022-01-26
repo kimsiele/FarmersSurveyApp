@@ -5,7 +5,9 @@ buildscript {
         coroutine_version = '1.5.2'
         retrofit_version = '2.9.0'
         okhttp_version = "4.9.0"
-        room_version = "2.4.0"
+        room_version = "2.3.0"
+        viewmodel_version = '2.4.0'
+        work_version = "2.7.1"
 
     }
     repositories {
