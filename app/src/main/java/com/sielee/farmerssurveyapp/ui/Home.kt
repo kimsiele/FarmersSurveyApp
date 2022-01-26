@@ -1,13 +1,14 @@
 package com.sielee.farmerssurveyapp.ui
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.work.*
 import com.sielee.farmerssurveyapp.R
 import com.sielee.farmerssurveyapp.data.database.SurveyDatabase
 import com.sielee.farmerssurveyapp.data.models.*
@@ -26,7 +27,8 @@ class Home : Fragment() {
         // Inflate the layout for this fragment
         binding =   FragmentStartSurveyBinding.inflate(inflater,container,false)
         val surveyDatabase = SurveyDatabase.getInstance(requireContext())
-        val sharedViewModelFactory = MainViewModelFactory(surveyDatabase)
+        val application = Application()
+        val sharedViewModelFactory = MainViewModelFactory(surveyDatabase, application)
         sharedViewModel = ViewModelProvider(requireActivity(),sharedViewModelFactory)[MainViewModel::class.java]
 
         binding.apply {
@@ -34,8 +36,7 @@ class Home : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             homeFragment = this@Home
         }
-        //sharedViewModel.getSurvey()
-
+       sharedViewModel.startUpload()
         return binding.root
     }
 
