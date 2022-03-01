@@ -1,6 +1,6 @@
 # FarmersSurveyApp
-This app consumes from Survey JSON API endpoint to fetch survey JSON from the API and store it in the app DB. I did build the app to learn master more MVVM architecture and Repository Pattern, Restful web service, android background tasks
-### It could be buggy! but fixes highly appreciated
+This app consumes from Survey JSON API endpoint to fetch survey JSON from the API and store it in the app DB. I did build the app to learn master more MVVM architecture and Repository Pattern, Restful web service, android background tasks and how to use shared viewmodel.
+
 # Screenshots
 <div align="center">
 
